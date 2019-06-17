@@ -17,7 +17,7 @@ plugins {
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    
     mavenCentral()
 }
 
@@ -25,9 +25,11 @@ dependencies {
      def junit4Version   = '4.12'
      def junitBomVersion = '5.4.2'
      
-     testimplementation("org.junit.jupiter:junit-jupiter")
+     testImplementation(platform("org.junit:junit-bom:5.4.2"))
      
-     testImplementation("junit:junit:$(junit4Version)")
+     testImplementation("org.junit.jupiter:junit-jupiter")
+     
+     testImplementation("junit:junit:4.12")
      testRuntimeOnly("org.junit.vintage:junit-vintage-engine"){
          because 'allows JUnit 3 and JUnit 4 tests to run'
          }
@@ -36,20 +38,22 @@ dependencies {
          }
          
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+//     impIementation 'com.google.guava:guava:27.0.1-jre'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
 test{
-   userJunitPlatform{
+     useJunitPlatform()
+     /*{
+        includeEngines 'junit-vintage'
+        excludeEngines 'custom-engine'
         excludeTags 'slow'
- }
+     }
    testLogging{
     events 'passed', 'skipped', 'failed'
     }
-    finalizedBy(jacocoTestReport)
-    }
-
+   finalizedBy(jacocoTestreport)*/
+}
 // Define the main class for the application
-mainClassName = 'com.virtusa.jenkins.App'
+mainClassName = 'jenkinsJunit.App'
