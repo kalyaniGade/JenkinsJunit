@@ -9,7 +9,7 @@ public class JunitTest {
 	@Test
 	public void test() {
 		Junit junit=new Junit();
-		assertEquals(26,junit.add(junit.a, junit.b) );
+		assertEquals(26,junit.add(junit.a, junit.b));
 	}
 
 }
