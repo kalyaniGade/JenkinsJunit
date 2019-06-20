@@ -12,7 +12,7 @@ plugins {
     // Apply the java plugin to add support for Java
     id 'com.gradle.build-scan' version '2.1'
     id 'java'
-    
+    id 'jacoco'
     // Apply the application plugin to add support for building an application
     id 'application'
 }
@@ -46,32 +46,15 @@ dependencies {
          because 'allows tests to run from IDEs that bundle older version of launcher'
      }
          
-    // This dependency is found on compile classpath of this component and consumers.
-//     impIementation 'com.google.guava:guava:27.0.1-jre'
+ } 
 
-    // Use JUnit test framework
-   // testImplementation 'junit:junit:4.12'
-}
-
-/*
-test{
-     useJunitPlatform {
-        //includeEngines 'junit-vintage'
-       // excludeEngines 'custom-engine'
-      // includeTags 'fast'
-        excludeTags 'slow'
-     }
-   testLogging{
-         events 'passed', 'skipped', 'failed'
-    }
-   //finalizedBy(jacocoTestreport)*/
-//}
-
-
-
- 
 test {
     useJUnitPlatform()
+   
+   testLogging{
+         events = ["passed", "skipped", "failed"]
+    }
+   finalizedBy jacocoTestReport
 }
 // Define the main class for the application
 mainClassName = 'jenkinsJunit.App'
