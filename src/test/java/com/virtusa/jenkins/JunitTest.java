@@ -35,7 +35,7 @@ public class JunitTest {
 	@DisplayName("Testing  Add method")
 	public void test1() {
 		 junit=new Junit();
-		assertEquals(10,junit.add(junit.a, junit.b));
+		assertEquals(20,junit.add(junit.a, junit.b));
 	}
 	
 	@Tag("slow")
