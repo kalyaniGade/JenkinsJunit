@@ -12,7 +12,7 @@ plugins {
     // Apply the java plugin to add support for Java
     id 'com.gradle.build-scan' version '2.1'
     id 'java'
-    id 'jacoco'
+    //id 'jacoco'
     // Apply the application plugin to add support for building an application
     id 'application'
 }
@@ -54,7 +54,7 @@ test {
    testLogging{
          events = ["passed", "skipped", "failed"]
     }
-   finalizedBy jacocoTestReport
+  // finalizedBy jacocoTestReport
 }
 // Define the main class for the application
 mainClassName = 'jenkinsJunit.App'
