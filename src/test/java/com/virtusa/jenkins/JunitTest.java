@@ -35,16 +35,16 @@ public class JunitTest {
 	@DisplayName("Testing  Add method")
 	public void test1() {
 		 junit=new Junit();
-		assertEquals(10,junit.add(junit.a, junit.b));
+		assertEquals(20,junit.add(junit.a, junit.b));
 	}
 	
-	@Tag("slow")
+	//@Tag("slow")
     @Test
     public void testAddMaxInteger() {
         assertEquals(2147483646, Integer.sum(2147183646, 300000));
     }
 	
-	@Tag("fast")
+	//@Tag("fast")
 	@Test
 	public void divException() {
 		 assertThrows(ArithmeticException.class, () -> {
