@@ -33,6 +33,6 @@ public class AppTest {
         assertNotNull(string1);			
         assertNull(string5);			
         assertTrue(variable1<variable2);					
-       // assertArrayEquals(airethematicArrary1, airethematicArrary2);					
+        assertArrayEquals(airethematicArrary1, airethematicArrary2);					
     }		
 }
